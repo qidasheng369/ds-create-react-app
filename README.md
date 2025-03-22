@@ -17,21 +17,21 @@ CLI (Command Line Interface) to create a new React Template utilizing Webpack 5 
 To install run the following command:
 
 ```bash
-npm install @dnitecki/react-webpack-template
+npm install @ids-react/ds-create-react-app
 ```
 
 To create a React template run the following command:
 
 ```bash
-create-react-template
+ds-cra
 ```
 
 or
 
 ```bash
-create-react-template your-react-app-name
+ds-cra your-react-app-name
 ```
 
 ## Source
 
-https://github.com/dnitecki/react-app-template
+https://github.com/qidasheng369/react-app-template

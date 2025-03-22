@@ -1,5 +1,5 @@
 {
-  "name": "@dnitecki/react-webpack-template",
+  "name": "@ids-react/ds-create-react-app",
   "version": "1.0.3",
   "description": "CLI (Command Line Interface) to create a new React Template utilizing Webpack 5 with Hot Module Replacement",
   "main": "index.js",
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dnitecki/react-webpack-template.git"
+    "url": "https://github.com/qidasheng369/ds-create-react-app.git"
   },
   "bin": {
-    "create-react-template": "index.js"
+    "ds-cra": "index.js"
   },
   "keywords": [
     "react",
@@ -19,6 +19,6 @@
     "typescript",
     "sass"
   ],
-  "author": "dominick.nitecki",
+  "author": "dasheng",
   "license": "ISC"
 }

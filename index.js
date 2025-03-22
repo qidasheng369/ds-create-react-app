@@ -3,7 +3,7 @@ const spawn = require("child_process").spawn;
 const process = require("process");
 const fs = require("fs");
 const args = process.argv;
-const repository = "https://github.com/dnitecki/react-app-template.git";
+const repository = "https://github.com/qidasheng369/react-app-template.git";
 const newDir =
   args[2] === undefined ? "./my-react-app-template" : `./${args[2]}`;
 
@@ -60,12 +60,41 @@ const createReactTemplateFolder = () => {
   });
 };
 
+const updatePackageJson = () => {
+  const packageJsonPath = `${newDir}/package.json`;
+  fs.readFile(packageJsonPath, 'utf8', (err, data) => {
+    if (err) {
+      console.log('Error reading package.json:', err);
+      return;
+    }
+
+    try {
+      const packageJson = JSON.parse(data);
+      // 使用目录名作为项目名称，移除开头的 './' 并替换非法字符
+      const projectName = newDir.replace(/^\.\//, '').replace(/[^a-zA-Z0-9-]/g, '-');
+      packageJson.name = projectName;
+
+      fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf8', (err) => {
+        if (err) {
+          console.log('Error writing package.json:', err);
+          return;
+        }
+        console.log('Successfully updated package.json name to:', projectName);
+      });
+    } catch (err) {
+      console.log('Error parsing package.json:', err);
+    }
+  });
+};
+
 const copyTemplateToFolder = () => {
   createReactTemplateFolder();
   clone(repository, newDir, [], (err) => {
     if (err) {
       console.log("Error cloning repository:", err);
+      return;
     }
+    updatePackageJson();
     console.log("Success! Your React template is ready.");
   });
 };
